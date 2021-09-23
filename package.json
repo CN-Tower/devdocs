@@ -1,0 +1,24 @@
+{
+  "name": "langart",
+  "version": "1.0.0",
+  "description": "> 人人都是艺术家，对文艺的爱好是人的本能，在这里，让你体验语言艺术之美！",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CN-Tower/langart.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CN-Tower/langart/issues"
+  },
+  "homepage": "https://github.com/CN-Tower/langart#readme",
+  "devDependencies": {
+    "vuepress": "^1.8.2"
+  }
+}
