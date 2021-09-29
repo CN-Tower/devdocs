@@ -2,11 +2,11 @@
 
 > WEB开发常用技术笔记和文档
 
-## 1-CSBasic 计算机基础
+## 1-FrontEnd 前端开发
 
-## 2-FrontEnd 前端开发
+## 2-BackEnd 后端开发
 
-## 3-BackEnd 后端开发
+## 3-CSBasic 开发基础
 
 ## 4-Testing 测试
 
@@ -18,4 +18,4 @@
 
 ## 8-DevTools 开发工具
 
-## 9-Additional 其它相关
+## 9-Relatives 开发相关

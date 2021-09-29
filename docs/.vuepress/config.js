@@ -1,57 +1,19 @@
 module.exports = {
-  title: '汉语言艺术',
-  description: '人人都是艺术家，对文艺的爱好是人的本能',
+  title: '开发宝典',
+  description: '积沙成塔，集腋成裘，燕子衔泥磊大窝！',
   head: [["link", { rel: "icon", href: `/favicon.ico` }]],
-  base: "/langart/",
+  base: "/devdocs/",
   dest: "./dist",
   lastUpdated: 'Last Updated',
   themeConfig: {
     nav: [
-      { text: "成语俗话", link: "/成语俗话/中华名言.html" },
-      { text: "文摘语录", link: "/文摘语录/楹联巧对.html" },
-      { text: "诗词歌赋", link: "/诗词歌赋/企业家宣言.html" },
-      { text: "兴趣作品", link: "/兴趣作品/论学习.html" },
-      { text: "GitHub", link: "https://github.com/CN-Tower/langart" }
+      { text: "页面导航", link: "/0-guides/" },
+      { text: "前端开发", link: "/1-frontend/" },
+      { text: "后端开发", link: "/2-backend/" },
+      { text: "开发基础", link: "/3-devbasic/" },
+      { text: "GitHub", link: "https://github.com/CN-Tower/devdocs" }
     ],
-    sidebar: {
-      '/成语俗话/': getSideMenu('成语俗话', [
-        '中华名言',
-        '经典谚语',
-        '经典熟语',
-        '分字俗语',
-        '常用成语',
-      ]),
-      '/文摘语录/': getSideMenu('文摘语录', [
-        '楹联巧对',
-        '关于奋斗',
-        '哲人语录',
-        '主席语录',
-        '网络语摘',
-        '随记语录',
-      ]),
-      '/诗词歌赋/': getSideMenu('诗词歌赋', [
-        '企业家宣言',
-        '青春',
-        '当你老了',
-        '诗八首',
-        '相信未来',
-        '蜀道难',
-        '诗词精典-小学',
-        '诗词精典-初中',
-        '诗词精典-高中',
-        '诗词精典-大学',
-      ]),
-      '/兴趣作品/': getSideMenu('兴趣作品', [
-        '论学习',
-        '论工作',
-        '宇宙观',
-        '西厢记',
-        '白蛇传',
-        '花木兰',
-        '杜十娘',
-        '毕业晚宴',
-      ]),
-    },
+    sidebar: getSideBar(),
     lastUpdated: 'Last Updated'
   },
   markdown: {
@@ -60,17 +22,20 @@ module.exports = {
   }
 }
 
-function getSideMenu(title, children) {
-  const menuList = [
-    ['/成语俗话/中华名言.html', '成语俗话'],
-    ['/文摘语录/楹联巧对.html', '文摘语录'],
-    ['/诗词歌赋/企业家宣言.html', '诗词歌赋'],
-    ['/兴趣作品/论学习.html', '兴趣作品'],
-  ];
+function getSideBar() {
+  const sidebar = {};
+  const pages = getPages();
+  pages.forEach(page => sidebar[page.path] = getSideMenu(page.name, page.children));
+  return sidebar;
+}
+
+function getSideMenu(name, children) {
+  const pages = getPages();
+  const menuList = pages.map((item, i) => [item.path, getTitle(item, i)]);
   menuList.find((item , i) => {
-    if (item[1] === title) {
+    if (item[1].indexOf(name) > -1) {
       menuList[i] = {
-        title,
+        title: item[1],
         children,
         collapsable: false,
         path: item[0],
@@ -78,4 +43,62 @@ function getSideMenu(title, children) {
     }
   });
   return menuList;
+}
+
+function getTitle({title, name}, i) {
+  return `${i + 1} ${title} ${name}`;
+}
+
+function getPages() {
+  return [
+    {
+      path: '/1-frontend/',  title: 'FrontEnd',  name: '前端开发',  children: [
+        ['@Angular/', 'Aangular 框架'],
+        ['@React/', 'React 框架'],
+        ['@Vue/', 'Vue 框架'],
+        ['github/', 'GitHub 仓库'],
+        ['blogs/', 'Blogs 文章'],
+        ['books/', 'Books 书籍'],
+        ['styles/', 'Styles 样式'],
+        ['libs/', 'Libs 类库'],
+        ['plugins/', 'Plugins 插件'],
+        ['2d3d/', '2D3D 画布'],
+        ['data/', 'Data 可视化'],
+      ],
+    },
+    {
+      path: '/2-backend/',   title: 'BackEnd',  name: '后端开发',  children: [
+
+      ],
+    },
+    {
+      path: '/3-devbasic/',  title: 'DevBasic',  name: '开发基础',  children: [
+   
+      ],
+    },
+    {
+      path: '/4-testing/',   title: 'Testing',  name: '测试',     children: [
+      ],
+    },
+    {
+      path: '/5-devops/',    title: 'DevOps',  name: '运维',     children: [
+      ],
+    },
+    {
+      path: '/6-product/',   title: 'Product',  name: '产品',     children: [
+      ],
+    },
+    {
+      path: '/7-design/',    title: 'Design',  name: '设计',     children: [
+      ],
+    },
+    {
+      path: '/8-devtools/',  title: 'DevTools',  name: '开发工具',  children: [
+      ],
+    },
+    {
+      path: '/9-relatives/', title: 'Relatives',  name: '开发相关',  children: [
+      ],
+    },
+  ];
 }
