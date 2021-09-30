@@ -20,5 +20,9 @@
   "homepage": "https://github.com/CN-Tower/devdocs#readme",
   "devDependencies": {
     "vuepress": "^1.8.2"
+  },
+  "dependencies": {
+    "funclib": "^6.0.5",
+    "viewerjs": "^1.10.1"
   }
 }
