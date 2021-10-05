@@ -86,7 +86,8 @@ function getPages() {
       title: 'BackEnd',
       name: '后端',
       children: [
-
+        { path: 'mysql', name: 'MySQL数据库' },
+        { path: 'mongodb', name: 'MongoDB数据库' },
       ],
     },
     {
@@ -94,7 +95,9 @@ function getPages() {
       title: 'DevBasic', 
       name: '基础', 
       children: [
-
+        { path: 'data-structure/', name: '数据结构' },
+        { path: 'algorithm/', name: '常用算法' },
+        { path: 'design-patten/', name: '设计模式' },
       ],
     },
     {
@@ -111,6 +114,8 @@ function getPages() {
       children: [
         { path: 'linux', name: 'Linux' },
         { path: 'mac', name: 'MacOS' },
+        { path: 'git', name: 'Git版本管理' },
+        { path: 'network', name: 'Network网络' },
       ],
     },
     {
@@ -118,6 +123,7 @@ function getPages() {
       title: 'Product', 
       name: '产品',    
       children: [
+
       ],
     },
     {
@@ -125,6 +131,7 @@ function getPages() {
       title: 'Design', 
       name: '设计',    
       children: [
+
       ],
     },
     {
@@ -132,6 +139,7 @@ function getPages() {
       title: 'DevTools', 
       name: '工具', 
       children: [
+
       ],
     },
     {
@@ -139,6 +147,7 @@ function getPages() {
       title: 'Relatives', 
       name: '相关', 
       children: [
+
       ],
     },
   ];
